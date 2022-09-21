@@ -1,0 +1,44 @@
+# Super Simple Update API.
+
+## How Do I Use Super Simple Update API?
+#### - Upload index.php to your server.
+#### - Add the code below to your .htaccess.
+    Options +MultiViews
+    Options -Indexes
+    
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (.+) index.php?d=$1 [L]
+
+### Add add .zip , .md5sum & .txt file live in zips/ .
+> -- **zips**/lightning-17.1-20220912-UNOFFICIAL-milletltetmo-Unsweetene-XDA-Build.**zip**
+> -- **zips**/lightning-17.1-20220912-UNOFFICIAL-milletltetmo-Unsweetene-XDA-Build.zip.**md5sum**
+> -- **zips**/lightning-17.1-20220912-UNOFFICIAL-milletltetmo-Unsweetene-XDA-Build.zip.**txt**
+
+## How Do I Test Out The API
+
+> https://romname . url extensions/updater api dir/device name
+> http://local ip addrress/updater api dir/device name when using local
+> ip addrress android:usesCleartextTraffic="true"
+
+## How Does The Super Simple Update API Work?
+
+> Simple since updater uses the json format index.php pretend to be a json file.
+
+#### The output index.php should look something like this.
+
+    {
+        "response": [
+            {
+                "datetime": 1663719716,
+                "filename": "lightning-17.1-20220912-UNOFFICIAL-milletltetmo-Unsweetene-XDA-Build.zip",
+                "id": "e91d834623bf587f301f8fc5ab8d27d4",
+                "romtype": "UNOFFICIAL",
+                "size": 4096,
+                "url": "http://192.168.1.86:82/Updater/zips/lightning-17.1-20220912-UNOFFICIAL-milletltetmo-Unsweetene-XDA-Build.zip",
+                "changelog": "http://192.168.1.86:82/Updater/zips/lightning-17.1-20220912-UNOFFICIAL-milletltetmo-Unsweetene-XDA-Build.zip.txt",
+                "version": "17.1"
+            }
+        ]
+    }
